@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap');
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+  color: #fff;
+  background-color: #242424;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --clr-unic: #80f2e7;
+  --bg-clr: #061115;
+  --border-input-clr: #115048;
+
+  /* navigation */
+  --font-nav-clr: #fff;
+  --bg-nav-clr: #091520;
+  --border-nav-clr: #081929;
+  --border-nav-btn-clr: #0d2d39;
+  --font-nav-input-clr: #868686;
+  --font-nav-logo-size: 3.8rem;
+  --font-nav-btn-size: 2.4rem;
+  --font-nav-input-size: 2.4rem;
+
+  /* main */
+  --bg-main-clr: #103c36;
+  --bg-main-descr-clr: #18645a;
+  --bg-main-names-clr: #207c71;
+  --bg-main-row-clr: #0d2f2b;
+  --bg-main-btn-edit-clr: #656565;
+  --bg-main-btn-delete-clr: #a61818;
+  --border-main-row-clr: #18645a;
+  --border-main-descr-clr: #175850;
+  --font-main-descr-size: 2rem;
+  --font-main-row-size: 1.6rem;
+  --font-main-btn-size: 1.2rem;
+
+  /* addUsers */
+  --bg-adduser-clr: #12202e;
+  --bg-adduser-btn-sub-clr: #2ea67d;
+  --bg-adduser-btn-clear-clr: #2e2e2e;
+  --border--adduser-form-clr: #243e58;
+  --font-adduser-size-primary: 2.8rem;
+  --font-adduser-size-secondary: 2rem;
+
+  /* footer */
+  --bg-footer-clr: #050f12;
+  --border-footer-clr: #0c1821;
+  --font-footer-clr: #4d4d4d;
+  --font-footer-size: 1.6rem;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
