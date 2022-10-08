@@ -11,7 +11,7 @@
   font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
   color: #fff;
-  background-color: #242424;
+  background-color: var(--bg-clr);
   line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,7 +29,7 @@
   --border-nav-clr: #081929;
   --border-nav-btn-clr: #0d2d39;
   --font-nav-input-clr: #868686;
-  --font-nav-logo-size: 3.8rem;
+  --font-nav-logo-size: 1.6rem;
   --font-nav-btn-size: 2.4rem;
   --font-nav-input-size: 2.4rem;
 

@@ -1,0 +1,58 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh auto;
+  width: 90%;
+  height: 75vh;
+  row-gap: 0.5rem;
+}
+
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+}
+.main__userlist {
+  border-radius: 1rem;
+  background-color: var(--bg-main-clr);
+  height: 100%;
+}
+.main__userlist__description {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7%;
+
+  background-color: var(--bg-main-descr-clr);
+  border-radius: 1rem 1rem 0 0;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.main__userlist__description > * {
+  display: inline-block;
+  width: 10%;
+  background-color: var(--bg-main-names-clr);
+  text-align: center;
+  font-size: var(--font-main-descr-size);
+  border-radius: 0.5rem;
+}
+.main__userlist__list {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0.5rem;
+  border-radius: 1rem;
+  font-size: var(--font-main-row-size);
+  background-color: var(--bg-main-row-clr);
+}
+.main__userlist__list > * {
+  display: flex;
+  align-items: center;
+  width: 12.5%;
+  min-height: 5rem;
+  padding: 0.3em;
+  border-right: 1px solid var(--border-main-row-clr);
+  word-wrap: break-word;
+  font-weight: 300;
+}
