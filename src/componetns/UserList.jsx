@@ -1,12 +1,10 @@
 import { useEffect, useMemo } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { initialUsers } from '../reducers/userReducer'
-import FullSizeList from './FullSizeList'
-import MinSizeList from './MinSizeList'
+import List from './List'
 
 const UserList = ({ users, sort, filter }) => {
   const dispatch = useDispatch()
-  let width = window.innerWidth
   useEffect(() => {
     dispatch(initialUsers())
     //you need to optimize here but later TODO:
@@ -20,7 +18,7 @@ const UserList = ({ users, sort, filter }) => {
       [filter, sort, users]
     )
   })
-  return <>{width > 900 ? <FullSizeList list={sortedList} /> : <MinSizeList list={sortedList} />}</>
+  return <List list={sortedList} />
 }
 
 const mapStateToProps = (state) => {

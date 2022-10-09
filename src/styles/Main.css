@@ -21,16 +21,17 @@
   width: 3rem;
   margin-right: 1rem;
 }
+
+/* userlist  */
 .main__userlist {
   border-radius: 1rem;
   background-color: var(--bg-main-clr);
 }
-.list__options__minisized {
-  display: flex;
-}
+
 .main__userlist__description {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(8, 11%);
+  justify-content: space-evenly;
   align-items: center;
   height: 5rem;
 
@@ -42,43 +43,44 @@
   font-weight: 300;
 }
 .main__userlist__description > * {
-  display: inline-block;
-  width: 11%;
   background-color: var(--bg-main-names-clr);
   text-align: center;
-  padding: 0 0.1em;
-  font-size: clamp(1.2rem, 1.7vw, var(--font-main-descr-size));
+  font-size: clamp(1.7rem, 1.5vw, var(--font-main-descr-size));
 
   border-radius: 0.5rem;
 }
 
-.description_minisized > * {
-  width: 20%;
-  font-size: clamp(1.2rem, 2vw, var(--font-main-descr-size));
-}
 .main__userlist__list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   align-items: center;
   margin: 1rem 0.5rem;
   border-radius: 1rem;
   font-size: clamp(1.2rem, 1vw, var(--font-main-row-size));
   background-color: var(--bg-main-row-clr);
 }
+
 .main__userlist__list > * {
   display: block;
-  width: 12.5%;
   word-wrap: break-word;
   padding: 0.3em;
   border-right: 1px solid var(--border-main-row-clr);
   word-wrap: break-word;
   font-weight: 300;
 }
-.userlist_minisized > * {
-  width: 25%;
-}
+
 .main__userlist__list__options {
   display: flex;
   justify-content: space-around;
+  border: none;
+}
+.link__show {
+  color: #fff;
+  cursor: pointer;
+  transition: 0.1s color;
+}
+.link__show:hover {
+  color: tomato;
 }
 .btn {
   border-radius: 0.3rem;
@@ -88,6 +90,7 @@
   border: none;
   cursor: pointer;
   transition: 0.1s filter;
+  width: 50%;
 }
 
 .btn:hover {
@@ -101,4 +104,92 @@
 .btn-edit {
   width: 40%;
   background-color: var(--bg-main-btn-edit-clr);
+}
+@media (max-width: 1200px) {
+  .main__userlist__description {
+    grid-template-columns: repeat(6, 15%);
+  }
+  .main__userlist__description > span:nth-last-of-type(n + 2):nth-last-of-type(-n + 3) {
+    display: none;
+  }
+  .main__userlist__list > span:nth-last-of-type(n + 2):nth-last-of-type(-n + 3) {
+    display: none;
+  }
+  .main__userlist__list {
+    grid-template-columns: repeat(6, 16.6%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .main__userlist__description {
+    grid-template-columns: repeat(5, 17%);
+  }
+  .main__userlist__description > span:nth-last-of-type(n + 4):nth-last-of-type(-n + 4) {
+    display: none;
+  }
+  .main__userlist__list > span:nth-last-of-type(n + 4):nth-last-of-type(-n + 4) {
+    display: none;
+  }
+  .main__userlist__list {
+    grid-template-columns: repeat(5, 20%);
+  }
+
+  .nav__logo > img {
+    width: 4rem;
+  }
+}
+@media (max-width: 700px) {
+  .main__userlist__description {
+    grid-template-columns: repeat(4, 23%);
+  }
+  .main__userlist__description > span:nth-last-of-type(n + 5):nth-last-of-type(-n + 5) {
+    display: none;
+  }
+  .main__userlist__list > span:nth-last-of-type(n + 5):nth-last-of-type(-n + 5) {
+    display: none;
+  }
+  .main__userlist__list {
+    grid-template-columns: repeat(4, 25%);
+  }
+  .nav__buttons {
+    display: flex;
+  }
+}
+@media (max-width: 500px) {
+  .main__userlist__description {
+    grid-template-columns: repeat(3, 30%);
+  }
+  .main__userlist__description > span:nth-last-of-type(n + 6):nth-last-of-type(-n + 6) {
+    display: none;
+  }
+  .main__userlist__list > span:nth-last-of-type(n + 6):nth-last-of-type(-n + 6) {
+    display: none;
+  }
+  .main__userlist__list {
+    grid-template-columns: repeat(3, 33%);
+  }
+  .nav__buttons {
+    display: flex;
+  }
+
+  @media (max-width: 400px) {
+    .main__userlist__description {
+      grid-template-columns: repeat(2, 45%);
+    }
+    .main__userlist__description > span:nth-last-of-type(n + 7):nth-last-of-type(-n + 7) {
+      display: none;
+    }
+    .main__userlist__list > span:nth-last-of-type(n + 7):nth-last-of-type(-n + 7) {
+      display: none;
+    }
+    .main__userlist__list {
+      grid-template-columns: repeat(2, 50%);
+    }
+    .nav__buttons {
+      display: flex;
+    }
+    .main_header__logo {
+      display: none;
+    }
+  }
 }

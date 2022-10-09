@@ -3,11 +3,8 @@ import { useDispatch } from 'react-redux'
 import { createUser } from '../reducers/userReducer'
 import '../styles/UserForm.css'
 const UserForm = () => {
-  let usersId = Math.floor(Math.random() * 1000)
   const dispatch = useDispatch()
-  //TODO: Fix id (maybe use uus)
-  const [newUser, setNewUser] = useState({
-    id: usersId,
+  const initialStateUser = {
     name: '',
     username: '',
     email: '',
@@ -15,23 +12,15 @@ const UserForm = () => {
     phone: '',
     address: { street: '', suite: '', city: '', zipcode: '' },
     company: { name: '', catchPhrase: '', bs: '' },
-  })
+  }
+  const [newUser, setNewUser] = useState(initialStateUser)
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(createUser(newUser))
     clear()
   }
   const clear = () => {
-    setNewUser({
-      id: '',
-      name: '',
-      username: '',
-      email: '',
-      phone: '',
-      website: '',
-      address: { street: '', suite: '', city: '', zipcode: '' },
-      company: { name: '', catchPhrase: '', bs: '' },
-    })
+    setNewUser(initialStateUser)
   }
   return (
     <div className="addUser">

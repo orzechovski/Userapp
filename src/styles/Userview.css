@@ -1,0 +1,87 @@
+.user__view {
+  display: grid;
+  grid-template-areas:
+    'name contact'
+    'company contact'
+    'buttons buttons';
+  margin: 5vh auto;
+  border-radius: 2rem;
+  padding: 2rem;
+  width: max(360px, 60%);
+  min-height: 70vh;
+  gap: 1rem;
+  background-color: var(--bg-adduser-clr);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+.user__view > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.user__view__personal {
+  grid-area: name;
+}
+.user__view h5 {
+  text-transform: uppercase;
+  color: var(--clr-unic);
+  font-size: clamp(1.8rem, 2vw, 3rem);
+}
+
+.user__view__address {
+  grid-area: contact;
+}
+.user__view__company {
+  grid-area: company;
+}
+.user__view__buttons {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-area: buttons;
+  gap: 1rem;
+}
+.btn__back {
+  border: none;
+  border-radius: 0.3rem;
+  background-color: tomato;
+  cursor: pointer;
+  transition: 0.1s filter;
+}
+.btn__back:hover {
+  filter: brightness(0.7);
+}
+.user__view__buttons > * {
+  width: 20%;
+  color: var(--bg-adduser-clr);
+}
+
+@media (max-width: 1024px) {
+  .user__view {
+    display: grid;
+    grid-template-areas:
+      'name'
+      'company'
+      'contact'
+      'buttons';
+  }
+  .user__view > * {
+    border-bottom: 1px solid var(--border--adduser-form-clr);
+  }
+
+  .user__view__buttons {
+    flex-direction: column;
+    align-items: center;
+    grid-area: buttons;
+    gap: 1rem;
+    border-bottom: none;
+  }
+  .user__view__buttons > * {
+    width: 60%;
+    padding: 0.3em 0;
+  }
+}
+@media (max-width: 724px) {
+  .user__view__buttons > * {
+    padding: 0.5em 0;
+  }
+}

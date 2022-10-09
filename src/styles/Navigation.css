@@ -33,7 +33,7 @@
   border-radius: 2rem;
   border: none;
   font-weight: 300;
-  font-size: var(--font-nav-input-size);
+  font-size: clamp(1rem, 2vw, var(--font-nav-input-size));
   color: #000;
   padding: 0.2em 1em;
 }
@@ -42,7 +42,7 @@
 }
 
 .nav__buttons {
-  font-size: clamp(1rem, 2vw, var(--font-nav-btn-size));
+  font-size: clamp(0.8rem, 2vw, var(--font-nav-btn-size));
 }
 .nav__buttons > a {
   padding: 0 1em;
@@ -72,21 +72,15 @@
 /* queries */
 
 @media (max-width: 1440px) {
-  .nav__input > input {
-    font-size: calc(var(--font-nav-input-size) * 0.8);
-  }
 }
 
 @media (max-width: 1024px) {
   .nav__logo > img {
     width: 4rem;
   }
-  .nav__input > input {
-    font-size: calc(var(--font-nav-input-size) * 0.7);
-  }
 }
 @media (max-width: 700px) {
   .nav__buttons {
+    display: flex;
   }
-  /* musisz dac hamba */
 }

@@ -1,7 +1,8 @@
 import ButtonDelete from './ButtonDelete'
 import ButtonEdit from './ButtonEdit'
+import { Link } from 'react-router-dom'
 
-const FullSizeList = ({ list }) => {
+const List = ({ list }) => {
   return (
     <>
       <div className="main__userlist__description">
@@ -16,7 +17,11 @@ const FullSizeList = ({ list }) => {
       </div>
       {list.map((user) => (
         <div className="main__userlist__list" key={user.id}>
-          <span>{user.name}</span>
+          <span>
+            <Link to={`/${user.id}`} className="link__show">
+              {user.name}
+            </Link>
+          </span>
           <span>{user.username}</span>
           <span>{user.email}</span>
           <span>{user.address.street}</span>
@@ -33,4 +38,4 @@ const FullSizeList = ({ list }) => {
   )
 }
 
-export default FullSizeList
+export default List

@@ -9,7 +9,9 @@ const userReducer = createSlice({
       return action.payload
     },
     setUser(state, action) {
-      return [...state, action.payload]
+      //this id is assigned from here because the resposne is always at value id = 11
+      const newUser = { ...action.payload, id: action.payload.id + Math.floor(Math.random() * 1000) }
+      return [...state, newUser]
     },
     deleteUser(state, action) {
       const userId = action.payload
