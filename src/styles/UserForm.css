@@ -6,13 +6,110 @@
   max-width: 1400px;
   min-height: 75vh;
   row-gap: 0.5rem;
+  background-color: var(--bg-adduser-clr);
+  border-radius: 2rem;
+  padding: 2rem;
+}
+.addUser h2 {
+  font-size: clamp(2rem, 2vw, 3rem);
 }
 .addUser__form {
-  display: flex;
-  border: 1px solid tomato;
+  display: grid;
+  gap: 2em;
+  grid-template-areas:
+    'personal address'
+    'personal address'
+    'buttons company';
+  min-height: 70vh;
 }
 
 .addUser__form__section {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
+  border: 1px solid var(--border--adduser-form-clr);
+  border-radius: 1rem;
+  padding: 1em;
+  font-size: clamp(1.5rem, 2vw, var(--font-adduser-size-primary));
+  font-weight: 300;
+}
+.addUser__form__section > label {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0.1rem 0;
+}
+.addUser__form__section > label > input {
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.addUser__form__section h3 {
+  font-size: clamp(2rem, 2vw, 2.2rem);
+  align-self: center;
+}
+
+.personal__section {
+  grid-area: personal;
+}
+.company__section {
+  grid-area: company;
+}
+.address__section {
+  grid-area: address;
+}
+.buttons__section {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-size: clamp(1.5rem, 2vw, var(--font-adduser-size-secondary));
+}
+.buttons__section > * {
+  border-radius: 0.5rem;
+  color: #fff;
+  background-color: var(--bg-adduser-btn-clear-clr);
+  border: none;
+  padding: 0.3em 0;
+  width: 40%;
+  cursor: pointer;
+  transition: 0.1s filter;
+}
+.buttons__section > button[type='submit'] {
+  background-color: var(--bg-adduser-btn-sub-clr);
+}
+.buttons__section > *:hover {
+  filter: brightness(1.4);
+}
+@media (max-width: 1400px) {
+  .addUser__form__section > label {
+    width: 80%;
+  }
+}
+@media (max-width: 1024px) {
+  .addUser__form__section > label > input {
+    width: 60%;
+  }
+  .buttons__section > * {
+    width: 60%;
+  }
+}
+
+@media (max-width: 700px) {
+  .addUser__form {
+    grid-template-areas:
+      'personal personal'
+      'address address'
+      'company company'
+      'buttons buttons';
+    height: 70vh;
+  }
+}
+@media (max-width: 500px) {
+  .addUser__form__section > label {
+    width: 100%;
+  }
 }

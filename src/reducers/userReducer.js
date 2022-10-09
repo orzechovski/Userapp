@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { create, getAll, del } from '../services/users'
+import { create, getAll, del, update } from '../services/users'
 
 const userReducer = createSlice({
   name: 'users',
@@ -22,7 +22,7 @@ const userReducer = createSlice({
   },
 })
 
-const { setUsers, setUser, deleteUser } = userReducer.actions
+const { setUsers, setUser, deleteUser, updateUser } = userReducer.actions
 
 export const initialUsers = () => {
   return async (dispatch) => {
@@ -44,6 +44,12 @@ export const createUser = (newUser) => {
 export const setAllUsers = (users) => {
   return (dispatch) => {
     dispatch(setUsers(users))
+  }
+}
+export const makeUpdate = (id, user) => {
+  return async (dispatch) => {
+    const response = await update(id, user)
+    dispatch(updateUser(response))
   }
 }
 

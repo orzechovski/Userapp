@@ -24,7 +24,7 @@ const FullSizeList = ({ list }) => {
           <span>{user.website}</span>
           <span>{user.company.name}</span>
           <span className="main__userlist__list__options">
-            <ButtonEdit id={user.id} />
+            <ButtonEdit user={user} />
             <ButtonDelete id={user.id} />
           </span>
         </div>

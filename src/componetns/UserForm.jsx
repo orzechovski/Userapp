@@ -1,27 +1,34 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { createUser } from '../reducers/userReducer'
 import '../styles/UserForm.css'
 const UserForm = () => {
-  const usersId = useSelector((state) => Math.max(...state.users.map((user) => user.id)))
-  //fix this ytou bijacth
+  let usersId = Math.floor(Math.random() * 1000)
+  const dispatch = useDispatch()
+  //TODO: Fix id (maybe use uus)
   const [newUser, setNewUser] = useState({
-    id: usersId + 1,
+    id: usersId,
     name: '',
     username: '',
     email: '',
+    website: '',
+    phone: '',
     address: { street: '', suite: '', city: '', zipcode: '' },
     company: { name: '', catchPhrase: '', bs: '' },
   })
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target.formAction)
+    dispatch(createUser(newUser))
+    clear()
   }
   const clear = () => {
     setNewUser({
-      id: usersId + 1,
+      id: '',
       name: '',
       username: '',
       email: '',
+      phone: '',
+      website: '',
       address: { street: '', suite: '', city: '', zipcode: '' },
       company: { name: '', catchPhrase: '', bs: '' },
     })
@@ -30,59 +37,95 @@ const UserForm = () => {
     <div className="addUser">
       <h2>Add User</h2>
       <form className="addUser__form" onSubmit={handleSubmit}>
-        <div className="addUser__form__section">
+        <div className="addUser__form__section personal__section">
           <h3>Personal</h3>
           <label>
             Name: <input type="text" value={newUser.name} onChange={({ target }) => setNewUser({ ...newUser, name: target.value })} />
           </label>
           <label>
-            UserName: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, username: target.value })} />
+            UserName: <input type="text" value={newUser.username} onChange={({ target }) => setNewUser({ ...newUser, username: target.value })} />
           </label>
           <label>
-            Email: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, email: target.value })} />
+            Email: <input type="text" value={newUser.email} onChange={({ target }) => setNewUser({ ...newUser, email: target.value })} />
           </label>
           <label>
-            Phone: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, phone: target.value })} />
+            Phone: <input type="text" value={newUser.phone} onChange={({ target }) => setNewUser({ ...newUser, phone: target.value })} />
           </label>
           <label>
-            Website: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, website: target.value })} />
+            Website: <input type="text" value={newUser.website} onChange={({ target }) => setNewUser({ ...newUser, website: target.value })} />
           </label>
         </div>
-        <div className="addUser__form__section">
+        <div className="addUser__form__section company__section">
           <h3>Company</h3>
           <label>
-            Name: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, name: target.value } })} />
+            Name:{' '}
+            <input
+              type="text"
+              value={newUser.company.name}
+              onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, name: target.value } })}
+            />
           </label>
           <label>
-            Catch phrase:{' '}
-            <input type="text" onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, catchPhrase: target.value } })} />
+            Phrase:{' '}
+            <input
+              type="text"
+              value={newUser.company.catchPhrase}
+              onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, catchPhrase: target.value } })}
+            />
           </label>
           <label>
-            bs: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, bs: target.value } })} />
+            bs:{' '}
+            <input
+              type="text"
+              value={newUser.company.bs}
+              onChange={({ target }) => setNewUser({ ...newUser, company: { ...newUser.company, bs: target.value } })}
+            />
           </label>
         </div>
-        <div className="addUser__form__section">
+        <div className="addUser__form__section address__section">
           <h3>Address</h3>
           <label>
-            Street: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, street: target.value } })} />
+            Street:{' '}
+            <input
+              type="text"
+              value={newUser.address.street}
+              onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, street: target.value } })}
+            />
           </label>
           <label>
-            Suite: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, suite: target.value } })} />
+            Suite:{' '}
+            <input
+              type="text"
+              value={newUser.address.suite}
+              onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, suite: target.value } })}
+            />
           </label>
           <label>
-            City: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, city: target.value } })} />
-          </label>{' '}
+            City:{' '}
+            <input
+              type="text"
+              value={newUser.address.city}
+              onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, city: target.value } })}
+            />
+          </label>
           <label>
-            Zipcode: <input type="text" onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, zipcode: target.value } })} />
+            Zipcode:{' '}
+            <input
+              type="text"
+              value={newUser.address.zipcode}
+              onChange={({ target }) => setNewUser({ ...newUser, address: { ...newUser.address, zipcode: target.value } })}
+            />
           </label>
         </div>
-        <button type="submit" formAction="submit">
-          submit
-        </button>
+        <div className="buttons__section">
+          <button type="submit" value="submit">
+            Submit
+          </button>
+          <button type="button" onClick={clear}>
+            Clear
+          </button>
+        </div>
       </form>
-      <button type="submit" formAction="clear">
-        clear
-      </button>
     </div>
   )
 }

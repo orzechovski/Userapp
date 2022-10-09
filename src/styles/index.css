@@ -18,7 +18,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+  overflow-x: hidden;
   --clr-unic: #80f2e7;
   --bg-clr: #061115;
   --border-input-clr: #115048;
@@ -51,8 +51,8 @@
   --bg-adduser-btn-sub-clr: #2ea67d;
   --bg-adduser-btn-clear-clr: #2e2e2e;
   --border--adduser-form-clr: #243e58;
-  --font-adduser-size-primary: 2.8rem;
-  --font-adduser-size-secondary: 2rem;
+  --font-adduser-size-primary: 2rem;
+  --font-adduser-size-secondary: 1.8rem;
 
   /* footer */
   --bg-footer-clr: #050f12;

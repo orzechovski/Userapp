@@ -43,11 +43,11 @@
 }
 .main__userlist__description > * {
   display: inline-block;
-  width: 10%;
+  width: 11%;
   background-color: var(--bg-main-names-clr);
   text-align: center;
   padding: 0 0.1em;
-  font-size: var(--font-main-descr-size);
+  font-size: clamp(1.2rem, 1.7vw, var(--font-main-descr-size));
 
   border-radius: 0.5rem;
 }

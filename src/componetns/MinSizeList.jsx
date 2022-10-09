@@ -16,7 +16,7 @@ const MinSizeList = ({ list }) => {
           <span>{user.username}</span>
           <span>{user.email}</span>
           <span className="main__userlist__list__options list__options__minisized">
-            <ButtonEdit id={user.id} />
+            <ButtonEdit user={user} />
             <ButtonDelete id={user.id} />
           </span>
         </div>
