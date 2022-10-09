@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import '../styles/Navigation.css'
 import logo from '../assets/users-logo.svg'
+import SearchInput from './SearchInput'
 const Navigation = () => {
   return (
     <div className="nav">
@@ -9,7 +10,7 @@ const Navigation = () => {
         <h1>Userapp</h1>
       </div>
       <div className="nav__input">
-        <input type="text" placeholder="Search for somethink..." />
+        <SearchInput />
       </div>
       <div className="nav__buttons">
         <NavLink to="/" end>

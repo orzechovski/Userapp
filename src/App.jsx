@@ -1,5 +1,7 @@
 import Navigation from './componetns/Navigation'
-import UserList from './componetns/UserList'
+import UserForm from './componetns/UserForm'
+import Main from './componetns/Main'
+
 import { Route, Routes } from 'react-router-dom'
 import './styles/App.css'
 
@@ -8,7 +10,8 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route path="/" element={<UserList />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/adduser" element={<UserForm />} />
       </Routes>
     </>
   )

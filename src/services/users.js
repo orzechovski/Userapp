@@ -6,4 +6,19 @@ const getAll = async () => {
   return response.data
 }
 
-export { getAll }
+const create = async (newUser) => {
+  const response = await axios.post(baseUrl, newUser)
+  return response.data
+}
+
+const update = async (id, newUser) => {
+  const response = await axios.put(`${baseUrl}/${id}`, newUser)
+  return response.data
+}
+
+const del = async (id) => {
+  const response = await axios.delete(`${baseUrl}/${id}`)
+  return response.data
+}
+
+export { getAll, create, update, del }

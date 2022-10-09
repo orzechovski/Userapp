@@ -1,52 +1,34 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useMemo } from 'react'
+import { connect, useDispatch } from 'react-redux'
 import { initialUsers } from '../reducers/userReducer'
-import '../styles/Main.css'
+import FullSizeList from './FullSizeList'
+import MinSizeList from './MinSizeList'
 
-const UserList = () => {
+const UserList = ({ users, sort, filter }) => {
   const dispatch = useDispatch()
-  const usersList = useSelector((state) => state.users)
+  let width = window.innerWidth
   useEffect(() => {
     dispatch(initialUsers())
+    //you need to optimize here but later TODO:
   }, [dispatch])
-
-  return (
-    <main className="main">
-      <header className="main__header">
-        <h1>(icon) Users</h1>
-        <select name="sort" id="sort">
-          <option value="by name">by name</option>
-        </select>
-      </header>
-      <section className="main__userlist">
-        <div className="main__userlist__description">
-          <span>name</span>
-          <span>username</span>
-          <span>email</span>
-          <span>address</span>
-          <span>phone</span>
-          <span>website</span>
-          <span>company</span>
-          <span>options</span>
-        </div>
-        {usersList.map((user) => (
-          <div className="main__userlist__list" key={user.id}>
-            <span>{user.name}</span>
-            <span>{user.username}</span>
-            <span>{user.email}</span>
-            <span>{user.address.street}</span>
-            <span>{user.phone}</span>
-            <span>{user.website}</span>
-            <span>{user.company.name}</span>
-            <span>
-              <button>edit</button>
-              <button>delete</button>
-            </span>
-          </div>
-        ))}
-      </section>
-    </main>
-  )
+  const sortedList = useMemo(() => {
+    const usersToSort = filter.length === 0 ? users : users.filter((user) => user.name.toLowerCase().includes(filter))
+    return [...usersToSort].sort(
+      (a, b) => {
+        return a[sort.key].localeCompare(b[sort.key]) * (sort.type === 'ascending' ? 1 : -1)
+      },
+      [filter, sort, users]
+    )
+  })
+  return <>{width > 900 ? <FullSizeList list={sortedList} /> : <MinSizeList list={sortedList} />}</>
 }
 
-export default UserList
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    sort: state.sort,
+    filter: state.filter,
+  }
+}
+const ConnectedUserList = connect(mapStateToProps)(UserList)
+export default ConnectedUserList
