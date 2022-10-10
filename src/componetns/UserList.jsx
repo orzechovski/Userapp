@@ -11,13 +11,10 @@ const UserList = ({ users, sort, filter }) => {
   }, [dispatch])
   const sortedList = useMemo(() => {
     const usersToSort = filter.length === 0 ? users : users.filter((user) => user.name.toLowerCase().includes(filter))
-    return [...usersToSort].sort(
-      (a, b) => {
-        return a[sort.key].localeCompare(b[sort.key]) * (sort.type === 'ascending' ? 1 : -1)
-      },
-      [filter, sort, users]
-    )
-  })
+    return [...usersToSort].sort((a, b) => {
+      return a[sort.key].localeCompare(b[sort.key]) * (sort.type === 'ascending' ? 1 : -1)
+    })
+  }, [filter, sort, users])
   return <List list={sortedList} />
 }
 

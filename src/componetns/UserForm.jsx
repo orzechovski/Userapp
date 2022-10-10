@@ -29,19 +29,48 @@ const UserForm = () => {
         <div className="addUser__form__section personal__section">
           <h3>Personal</h3>
           <label>
-            Name: <input type="text" value={newUser.name} onChange={({ target }) => setNewUser({ ...newUser, name: target.value })} />
+            Name:{' '}
+            <input placeholder="required" required type="text" value={newUser.name} onChange={({ target }) => setNewUser({ ...newUser, name: target.value })} />
           </label>
           <label>
-            UserName: <input type="text" value={newUser.username} onChange={({ target }) => setNewUser({ ...newUser, username: target.value })} />
+            UserName:{' '}
+            <input
+              placeholder="required"
+              required
+              type="text"
+              value={newUser.username}
+              onChange={({ target }) => setNewUser({ ...newUser, username: target.value })}
+            />
           </label>
           <label>
-            Email: <input type="text" value={newUser.email} onChange={({ target }) => setNewUser({ ...newUser, email: target.value })} />
+            Email:{' '}
+            <input
+              placeholder="required"
+              required
+              type="text"
+              value={newUser.email}
+              onChange={({ target }) => setNewUser({ ...newUser, email: target.value })}
+            />
           </label>
           <label>
-            Phone: <input type="text" value={newUser.phone} onChange={({ target }) => setNewUser({ ...newUser, phone: target.value })} />
+            Phone:{' '}
+            <input
+              placeholder="required"
+              required
+              type="text"
+              value={newUser.phone}
+              onChange={({ target }) => setNewUser({ ...newUser, phone: target.value })}
+            />
           </label>
           <label>
-            Website: <input type="text" value={newUser.website} onChange={({ target }) => setNewUser({ ...newUser, website: target.value })} />
+            Website:{' '}
+            <input
+              placeholder="required"
+              required
+              type="text"
+              value={newUser.website}
+              onChange={({ target }) => setNewUser({ ...newUser, website: target.value })}
+            />
           </label>
         </div>
         <div className="addUser__form__section company__section">

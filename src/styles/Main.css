@@ -52,11 +52,11 @@
 
 .main__userlist__list {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 12.5%);
   align-items: center;
   margin: 1rem 0.5rem;
   border-radius: 1rem;
-  font-size: clamp(1.2rem, 1vw, var(--font-main-row-size));
+  font-size: clamp(1.5rem, 1vw, var(--font-main-row-size));
   background-color: var(--bg-main-row-clr);
 }
 
@@ -153,6 +153,9 @@
   }
   .nav__buttons {
     display: flex;
+  }
+  .nav__logo {
+    display: none;
   }
 }
 @media (max-width: 500px) {
