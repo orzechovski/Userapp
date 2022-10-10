@@ -13,10 +13,12 @@ const Navigation = () => {
         <SearchInput />
       </div>
       <div className="nav__buttons">
-        <NavLink to="/" end>
+        <NavLink className="nav__buttons__showusers" to="/" end>
           show users
         </NavLink>
-        <NavLink to="/adduser">add users</NavLink>
+        <NavLink className="nav__buttons__addusers" to="/adduser">
+          add users
+        </NavLink>
       </div>
     </div>
   )

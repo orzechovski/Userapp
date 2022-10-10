@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     es2021: true,
+    'cypress/globals': true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   overrides: [],
@@ -10,7 +11,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'cypress'],
   rules: {
     'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
