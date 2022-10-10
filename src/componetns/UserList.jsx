@@ -7,7 +7,6 @@ const UserList = ({ users, sort, filter }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(initialUsers())
-    //you need to optimize here but later TODO:
   }, [dispatch])
   const sortedList = useMemo(() => {
     const usersToSort = filter.length === 0 ? users : users.filter((user) => user.name.toLowerCase().includes(filter))
